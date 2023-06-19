@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script type="text/x-template" class="template">
+      {{#each weekday}}
+           <!-- <div class="weekdays"> -->
+             <span class="day {{this}}">{{this}}</span>
+           <!-- </div> -->
+           {{/each}}
+    </script>
+
+    <title>Matching Days</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="intro">
+        <h1>Matching Days Widget</h1>
+        <p>
+          Pick any dates from the calendars below and see if they are have the
+          same weekday!!!
+        </p>
+      </div>
+
+      <div class="tempDisplay"></div>
+
+      <div class="dates">
+        <input type="date" class="date_one" name="date_one" id="date_one" />
+
+        <input type="date" class="date_two" name="date_two" id="date_two" />
+      </div>
+    </div>
+
+    <script src="./matching.js"></script>
+    <script src="./matching.dom.js"></script>
+  </body>
+</html>
