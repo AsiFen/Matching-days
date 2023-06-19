@@ -58,8 +58,8 @@ body {
 @media (max-width: 720px) {
   .tempDisplay {
     flex-wrap: wrap;
-    justify-content: space-between;
     justify-content: center;
+    justify-content: space-between;
   }
 
   body {
