@@ -14,12 +14,11 @@
 }
 
 span {
-  /* width: 7em;
-  height: 5em; */
+  width: 80px;
   text-align: center;
   padding: 20px;
   border: 1px solid rgb(23, 142, 189);
-  background-color: lightseagreen;
+  background-color: rgb(28, 207, 198);
   border-radius: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -47,6 +46,8 @@ input {
   margin: 2em;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+
 }
 
 body {
@@ -75,3 +76,6 @@ body {
 margin: 1em;
   }
 }
+ .container{
+  margin: 2em;
+ }

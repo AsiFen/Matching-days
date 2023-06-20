@@ -10,16 +10,16 @@ var date_two = document.querySelector('.date_two')
 // initialize Factory Function
 var matching = MatchingDays()
 
-// local storage
+// local storage ?????????????? 
 
-//
+// global variables
+var day;
 let weekday1;
 let weekday2;
-var day;
+let errorTimeout;
 // event: change of input 
 
 document.addEventListener('DOMContentLoaded', () => {
-
     date_one.addEventListener('change', () => {
 
         matching.setWeekdDay1(date_one.value)
@@ -27,24 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (matching.match() == true) {
             (document.querySelector('.' + weekday1 + '')).classList.add('green')
-            setTimeout(() => {
+           clearTimeout(errorTimeout)
+            errorTimeout = setTimeout(() => {
                 (document.querySelector('.' + weekday1 + '')).classList.remove('green')
-            }, 3000);
+            }, 5000);
         }
 
         else {
             (document.querySelector('.' + weekday1 + '')).classList.add('blue')
-            setTimeout(() => {
+           clearTimeout(errorTimeout)
+            errorTimeout = setTimeout(() => {
                 (document.querySelector('.' + weekday1 + '')).classList.remove('blue')
-            }, 4000);
-        }
-        if (date_one.value && date_two.value) {
-            date_one.value = ''
-            date_two.value = ''
+            }, 5000);
+        // }
+        // if (date_one.value && date_two.value) {
+        //     date_one.value = ''
+        //     date_two.value = ''
         }
 
     })
-
     date_two.addEventListener('change', () => {
         // (document.querySelector('.' + weekday2 + '')).classList.remove('green')
 
@@ -52,25 +53,26 @@ document.addEventListener('DOMContentLoaded', () => {
         weekday2 = matching.getWeekday2()
 
         if (matching.match() == true) {
-            (document.querySelector('.' + weekday2 + '')).classList.add('green')
-            setTimeout(() => {
-                (document.querySelector('.' + weekday2 + '')).classList.remove('green')
 
-            }, 3000);
+            (document.querySelector('.' + weekday2 + '')).classList.add('green')
+            clearTimeout(errorTimeout)
+            errorTimeout = setTimeout(() => {
+                (document.querySelector('.' + weekday2 + '')).classList.remove('green')
+            }, 5000);
         }
 
         else {
-            // (document.querySelector('.' + weekday2 + '')).classList.remove('green')
             (document.querySelector('.' + weekday2 + '')).classList.add('yellow')
-            setTimeout(() => {
+           clearTimeout(errorTimeout)
+            errorTimeout = setTimeout(() => {
                 (document.querySelector('.' + weekday2 + '')).classList.remove('yellow')
-            }, 4000);
+            }, 5000);
         }
 
-        if (date_one.value && date_two.value) {
-            date_one.value = ''
-            date_two.value = ''
-        }
+        // if (date_one.value && date_two.value) {
+        //     date_one.value = ''
+        //     date_two.value = ''
+        // }
     })
     //display days of week
     displayTemplate.innerHTML = templateFunction({ weekday: matching.display })
