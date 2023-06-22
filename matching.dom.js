@@ -27,32 +27,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (matching.match() == true) {
             (document.querySelector('.' + weekday1 + '')).classList.add('green')
-           clearTimeout(errorTimeout)
             errorTimeout = setTimeout(() => {
                 (document.querySelector('.' + weekday1 + '')).classList.remove('green')
             }, 5000);
+            clearTimeout(errorTimeout)
         }
 
         else {
-            (document.querySelector('.' + weekday1 + '')).classList.add('blue')
-           clearTimeout(errorTimeout)
+            (document.querySelector('.' + weekday1 + '')).classList.add('red')
+            clearTimeout(errorTimeout)
             errorTimeout = setTimeout(() => {
-                (document.querySelector('.' + weekday1 + '')).classList.remove('blue')
-            }, 5000);
-        // }
-        // if (date_one.value && date_two.value) {
-        //     date_one.value = ''
-        //     date_two.value = ''
+                (document.querySelector('.' + weekday1 + '')).classList.remove('red')
+            }, 2000);
         }
 
     })
+    
     date_two.addEventListener('change', () => {
         // (document.querySelector('.' + weekday2 + '')).classList.remove('green')
-
+        console.log(weekday1);
         matching.setWeekdDay2(date_two.value)
         weekday2 = matching.getWeekday2()
 
-        if (matching.match() == true) {
+        if (weekday1 == weekday2) {
 
             (document.querySelector('.' + weekday2 + '')).classList.add('green')
             clearTimeout(errorTimeout)
@@ -63,20 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         else {
             (document.querySelector('.' + weekday2 + '')).classList.add('yellow')
-           clearTimeout(errorTimeout)
+            clearTimeout(errorTimeout)
             errorTimeout = setTimeout(() => {
                 (document.querySelector('.' + weekday2 + '')).classList.remove('yellow')
-            }, 5000);
+            }, 2000);
         }
 
-        // if (date_one.value && date_two.value) {
-        //     date_one.value = ''
-        //     date_two.value = ''
-        // }
     })
     //display days of week
     displayTemplate.innerHTML = templateFunction({ weekday: matching.display })
 })
+
 
 
 
